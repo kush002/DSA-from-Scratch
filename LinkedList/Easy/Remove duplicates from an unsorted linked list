@@ -1,0 +1,58 @@
+ public static Node1 removeDuplicates(Node1 head)
+    {
+//        Node1 curr = head;
+//        Node1 prev = curr;
+//        Node1 temp = curr.next;
+//        while(curr.next!=null && temp.next!=null){
+//
+//            if(curr.x == temp.x){
+//                prev.next = temp.next;
+//                temp = temp.next;
+//            }
+//            else{
+//                temp = temp.next;
+//                prev = prev.next;
+//            }
+//            if(temp.next==null){
+//
+//                if(curr.x == temp.x) {
+//                    prev.next = temp.next;
+////                    temp = prev;
+////                    break;
+//                }
+//                if(curr.next!=null) {
+//                    curr = curr.next;
+//                    prev = curr;
+//
+//                    temp = curr.next;
+//                }
+//
+//            }
+//        }
+//        if(curr.next!=null && curr.x == temp.x) {
+//            prev.next = temp.next;
+////                    temp = prev;
+////                    break;
+//        }
+HashSet<Integer> hs = new HashSet<>();
+
+    /* Pick elements one by one */
+    Node1 current = head;
+    Node1 prev = null;
+        while (current != null) {
+        int curval = current.x;
+
+        // If current value is seen before
+        if (hs.contains(curval)) {
+            prev.next = current.next;
+        }
+        else {
+            hs.add(curval);
+            prev = current;
+        }
+        current = current.next;
+    }
+
+
+        return head;
+    }
